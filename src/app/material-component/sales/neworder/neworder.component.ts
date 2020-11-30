@@ -77,23 +77,13 @@ export class NeworderComponent implements OnInit {
       this.customernames = _.pluck(this.customers, 'name');
 
       this.salesman = result.respdata.Salesman;
-      // console.log('salesmanlist : ', this.salesman);
-      // this.salesmannames = _.pluck(this.salesman, 'name');
-      // console.log('salesmannames : ', this.salesmannames);
     });
   }
  
   selectedcustomer(event) {
     this.ledgerid = JSON.parse(_.pluck(_.where(this.customers, { 'name': event.option.value }), 'id'));
     this.customername = event.option.value;
-    console.log('customer ledgerid: ', this.ledgerid);
-    console.log('customer name: ', event.option.value);
   }
-
-  // selectedsalesman(event) {
-  //   this.salesmanid = JSON.parse(_.pluck(_.where(this.salesman, { 'name': event.option.value }), 'id'));
-  //   console.log('salesmanid: ', this.salesmanid);
-  // }
 
   handleFileInput(file: FileList){
     this.fileToUpload = file.item(0);
@@ -111,7 +101,7 @@ export class NeworderComponent implements OnInit {
   OnSubmit(Caption, Image){
     this.newOrderService.postFile(Caption.value, this.fileToUpload, this.ledgerid, this.customername, this.salesmanid).subscribe(res =>{
       console.log('done');
-      alert('Neworder updated');
+      alert('Neworder created');
       this.customername='';
       this.salesmanid = '';
       Caption.value = null;
