@@ -21,8 +21,12 @@ export interface Chart {
 	styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements AfterViewInit {
-	constructor(private router: Router){
+	weblink: string;
 
+	constructor(private router: Router){
+		let tempconObj = {serverIP : '', webLink : '', companyID: ''};
+		tempconObj = JSON.parse( localStorage.getItem('conObj')) || tempconObj; 
+		this.weblink = tempconObj.webLink;
 	}
 	ngAfterViewInit() {}
 
