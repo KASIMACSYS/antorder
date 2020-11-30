@@ -11,26 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialRoutes } from './material.routing';
-import { ButtonsComponent } from './buttons/buttons.component';
 
-import { GridComponent } from './grid/grid.component';
-import { ListsComponent } from './lists/lists.component';
-import { MenuComponent } from './menu/menu.component';
-import { TabsComponent } from './tabs/tabs.component';
-import { StepperComponent } from './stepper/stepper.component';
-import { ExpansionComponent } from './expansion/expansion.component';
-import { ChipsComponent } from './chips/chips.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { ProgressSnipperComponent } from './progress-snipper/progress-snipper.component';
-import { ProgressComponent } from './progress/progress.component';
-import {
-  DialogComponent,
-  DialogOverviewExampleDialogComponent
-} from './dialog/dialog.component';
-import { TooltipComponent } from './tooltip/tooltip.component';
-import { SnackbarComponent } from './snackbar/snackbar.component';
-import { SliderComponent } from './slider/slider.component';
-import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 import { NeworderComponent } from './sales/neworder/neworder.component';
 // import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 
@@ -47,25 +28,7 @@ import { NeworderComponent } from './sales/neworder/neworder.component';
     // NgxMatFileInputModule
   ],
   providers: [],
-  entryComponents: [DialogOverviewExampleDialogComponent],
   declarations: [
-    ButtonsComponent,
-    GridComponent,
-    ListsComponent,
-    MenuComponent,
-    TabsComponent,
-    StepperComponent,
-    ExpansionComponent,
-    ChipsComponent,
-    ToolbarComponent,
-    ProgressSnipperComponent,
-    ProgressComponent,
-    DialogComponent,
-    DialogOverviewExampleDialogComponent,
-    TooltipComponent,
-    SnackbarComponent,
-    SliderComponent,
-    SlideToggleComponent,
     NeworderComponent
   ]
 })
