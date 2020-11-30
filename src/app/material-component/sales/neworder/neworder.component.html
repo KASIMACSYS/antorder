@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="row">
+        <div class="col s8 offset-2">
+            <div class="card-panel teal lighten-2">
+                <h4 class="centre white-text">New Order</h4>   
+            </div>
+            <form #imageForm = ngForm (ngSubmit)="OnSubmit(Caption, Image)">
+                <!-- <mat-form-field appearance="fill">
+                    <mat-label>Select Customer (required)</mat-label>
+                    <mat-select [formControl]="customerControl" (selectionChange)="customerSelection($event)" required>
+                        <mat-option *ngFor="let cus of customers" [value]="cus">
+                            {{cus.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="customerControl.hasError('required')">Please choose an customer</mat-error>
+                    <mat-hint>{{customerControl.value?.sound}}</mat-hint>
+                </mat-form-field> -->
+                
+                <mat-form-field class="example-full-width">
+                    <input type="text" 
+                                    
+                            placeholder="Customer"
+                            aria-label="Number"
+                            matInput
+                            [formControl]="myControl"
+                            [matAutocomplete]="auto"  required>
+                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedcustomer($event)"  >
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{option}}
+                    </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+
+                <!-- <mat-form-field class="example-full-width">
+                    <input type="text" 
+                            placeholder="Salesman"
+                            aria-label="Number"
+                            matInput
+                            [formControl]="salesmanControl1"
+                            [matAutocomplete]="auto"  required>
+                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedsalesman($event)"  >
+                    <mat-option *ngFor="let option of salesmanfilteredOptions | async" [value]="option">
+                        {{option}}
+                    </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field> -->
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Select Salesman (required)</mat-label>
+                    <mat-select [formControl]="salesmanControl" (selectionChange)="salesmanSelection($event.value)" required>
+                        <mat-option *ngFor="let sal of salesman" [value]="sal.id">
+                            {{sal.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="salesmanControl.hasError('required')">Please choose an salesman</mat-error>
+                    <mat-hint>{{salesmanControl.value?.sound}}</mat-hint>
+                </mat-form-field> 
+ 
+                
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Image Name</mat-label>
+                    <input matInput placeholder="Type here..." #Caption ngModel name="Caption" id="Caption" required>
+                </mat-form-field>
+                
+                
+                <!-- <div class="row">
+                    <div class="input-field col s12">                         
+                        <label for="Caption">Name</label>
+                        <input type="text" #Caption ngModel name="Caption" id="Caption" required>
+                   </div>
+                </div> -->
+                <div >
+                    <img [src]="imageUrl" style="width:250px;height:200px">
+                    <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
+                </div>
+                
+                <br>
+                
+                <!-- <mat-form-field>
+                    <ngx-mat-file-input [formControl]="fileControl" [multiple]="multiple" [accept]="accept" [color]="color" (change)="handleFileInput($event.target.files)">
+                        <mat-icon ngxMatFileInputIcon>attach_file</mat-icon>
+                    </ngx-mat-file-input>
+                </mat-form-field> -->
+
+                <button mat-raised-button color="primary" type="submit" class="my-class" [disabled]="Image.value =='' || !imageForm.valid">Save</button>    
+               
+                              
+            </form>
+        </div>
+    </div>
+</div>

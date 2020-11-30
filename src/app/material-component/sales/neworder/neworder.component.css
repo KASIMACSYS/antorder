@@ -1,0 +1,8 @@
+.my-class{
+    width: 100%;
+    min-width: unset!important;
+}
+
+mat-raised-button {
+    width: 100px;
+}
